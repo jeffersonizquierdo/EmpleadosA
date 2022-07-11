@@ -3,7 +3,15 @@
       <div class="col" >
         <div >
           {{empleadoDeLista.nombre}} {{empleadoDeLista.apellido}} {{empleadoDeLista.cargo}} {{empleadoDeLista.salario}}
+          <ul style="list-style: none;" >
+            <li *ngFor="let caracteristica of arrayCrtcs" >{{caracteristica}}</li>
+          </ul>
         </div>
+
+        <app-crtcs-empleado (crtcEmpleado)="agregarCaracteristica($event)"></app-crtcs-empleado >
+
+        
+
       </div>
     </div>
   </div>

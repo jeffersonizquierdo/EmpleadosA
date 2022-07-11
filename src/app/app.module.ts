@@ -4,11 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { EmpleadoHijoComponent } from './empleado-hijo/empleado-hijo.component';
+import { CrtcsEmpleadoComponent } from './crtcs-empleado/crtcs-empleado.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EmpleadoHijoComponent
+    EmpleadoHijoComponent,
+    CrtcsEmpleadoComponent
   ],
   imports: [
     BrowserModule,
