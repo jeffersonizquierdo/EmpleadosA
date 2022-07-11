@@ -1,5 +1,6 @@
-import { ServicioEmpleadosService } from './../servicio-empleados.service';
+
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ServicioEmpleadosService } from '../servicios/mensaje/servicio-empleados.service';
 
 @Component({
   selector: 'app-crtcs-empleado',
