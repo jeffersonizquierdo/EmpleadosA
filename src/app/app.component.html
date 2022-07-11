@@ -34,13 +34,7 @@
 
 </div>
 
+<empleado-hijo *ngFor="let empleado of empleados; let i=index" [empleadoDeLista]="empleado" [indice]="i" >
 
-<div class="container" >
-  <div class="row" >
-    <div class="col" >
-      <div *ngFor="let empleado of empleados" style="margin:10px;">
-        {{empleado.nombre}} {{empleado.apellido}} {{empleado.cargo}} {{empleado.salario}}
-      </div>
-    </div>
-  </div>
-</div>
+</empleado-hijo>
+
