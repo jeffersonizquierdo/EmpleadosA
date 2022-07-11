@@ -18,7 +18,6 @@ export class CrtcsEmpleadoComponent implements OnInit {
 
   agregarCrtc(value:string){
 
-    this.miServicio.mostrarMensaje(value)
     this.crtcEmpleado.emit(value)
   }
 
