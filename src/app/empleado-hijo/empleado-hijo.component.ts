@@ -16,11 +16,6 @@ export class EmpleadoHijoComponent implements OnInit {
   @Input() empleadoDeLista:Empleado;
   @Input() indice: number;
 
-  
-  
-  
-   
-
   arrayCrtcs = ['']
 
   agregarCaracteristica (nuevaCrtc:string){

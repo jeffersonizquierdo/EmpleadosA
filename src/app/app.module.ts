@@ -11,13 +11,15 @@ import { ProyectosComponent } from './proyectos/proyectos.component';
 import { QuienesComponentComponent } from './quienes-component/quienes-component.component';
 import { ContactoComponentComponent } from './contacto-component/contacto-component.component';
 import { RouterModule, Routes } from '@angular/router';
+import { ModificarDatosEmpleadoComponent } from './modificar-datos-empleado/modificar-datos-empleado.component';
 
 const appRoutes:Routes = [
 
   {path:'', component:HomeComponentComponent},
   {path:'proyectos', component:ProyectosComponent},
   {path:'quienes', component:QuienesComponentComponent},
-  {path:'contacto', component:ContactoComponentComponent}, 
+  {path:'contacto', component:ContactoComponentComponent},
+  {path:'actualizar/:id', component:ModificarDatosEmpleadoComponent }, 
 
 ]
 
@@ -29,7 +31,8 @@ const appRoutes:Routes = [
     HomeComponentComponent,
     ProyectosComponent,
     QuienesComponentComponent,
-    ContactoComponentComponent
+    ContactoComponentComponent,
+    ModificarDatosEmpleadoComponent
   ],
   imports: [
     BrowserModule,
@@ -39,4 +42,4 @@ const appRoutes:Routes = [
   providers: [ServicioEmpleadosService,EmpleadosServices],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

@@ -4,11 +4,9 @@ import { Empleado } from "src/app/Empleado.model";
 
 @Injectable()
 export class EmpleadosServices{
-
-
+  
+    
   constructor( private servicioVentanaEmergente:ServicioEmpleadosService ){
-
-
   }
 
     empleados:Empleado[] = [
@@ -25,6 +23,18 @@ export class EmpleadosServices{
         this.servicioVentanaEmergente.mostrarMensaje("persona a agregar " + "\n" +
         "Nombre: " + empleado.nombre + "\n" + "Apelido: " + empleado.apellido)
         this.empleados.push(empleado);
+      }
+
+      consultarEmpleado(idEmpleado: number): Empleado {
+        
+        let empleado:Empleado = this.empleados[idEmpleado];
+
+        return empleado;
+      }
+
+      actualizarEmpleado(miEmpleado: Empleado, idEmpleado: number) {
+        
+        this.empleados[idEmpleado] = miEmpleado;
       }
 
 }

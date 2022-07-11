@@ -12,7 +12,5 @@ export class Empleado {
         this.apellido = apelido;
         this.cargo = cargo;
         this.salario = salario;
-
     }
-
 }
