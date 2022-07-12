@@ -15,12 +15,15 @@ export class ModificarDatosEmpleadoComponent implements OnInit {
     private route: ActivatedRoute, private router : Router) { }
 
   empleados:Empleado[] = [];
+
   
   ngOnInit(): void {
 
-    this.empleados = this.empleadosServices.empleados;
+    this.empleados =  this.empleadosServices.empleados;
 
-    this.idEmpleado = this.route.snapshot.params['id']
+    this.idEmpleado = this.route.snapshot.params['id'];
+
+    this.accion = parseInt(this.route.snapshot.queryParams['accion']);
 
     let empleado: Empleado = this.empleadosServices.consultarEmpleado(this.idEmpleado);
 
@@ -36,17 +39,41 @@ export class ModificarDatosEmpleadoComponent implements OnInit {
   cuadorApellido:string = '';
   cuadroCargo:string = '';
   cuadroSalario:number = 0;
+  accion:number;
 
   volverMenu(){
     this.router.navigate(['']);
   }
 
-  modificarEmpleado (){
+  // modificarEmpleado (){
   
-    let miEmpleado = new Empleado(this.cuadroNombre, this.cuadorApellido, this.cuadroCargo, this.cuadroSalario);
-    this.empleadosServices.actualizarEmpleado(miEmpleado, this.idEmpleado);
-    this.volverMenu();
+  //   let miEmpleado = new Empleado(this.cuadroNombre, this.cuadorApellido, this.cuadroCargo, this.cuadroSalario);
+  //   this.empleadosServices.actualizarEmpleado(miEmpleado, this.idEmpleado);
+  //   this.volverMenu();
     
+  // }
+
+  // eliminarEmpleado(){
+
+  //   let miEmpleado = new Empleado(this.cuadroNombre, this.cuadorApellido, this.cuadroCargo, this.cuadroSalario);
+  //   this.empleadosServices.eliminarEmpleado(this.idEmpleado);
+  //   this.volverMenu();
+  // }
+  cambio(){
+    if(this.accion==1){
+
+      let miEmpleado = new Empleado(this.cuadroNombre, this.cuadorApellido, this.cuadroCargo, this.cuadroSalario);
+      this.empleadosServices.actualizarEmpleado(miEmpleado, this.idEmpleado);
+      this.volverMenu();
+    } else if (this.accion==2){
+
+      this.empleadosServices.eliminarEmpleado(this.idEmpleado);
+      this.volverMenu();
+    }
+    
+
+    
+
   }
 
 }

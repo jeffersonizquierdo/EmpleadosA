@@ -4,8 +4,7 @@ import { Empleado } from "src/app/Empleado.model";
 
 @Injectable()
 export class EmpleadosServices{
-  
-    
+      
   constructor( private servicioVentanaEmergente:ServicioEmpleadosService ){
   }
 
@@ -35,6 +34,11 @@ export class EmpleadosServices{
       actualizarEmpleado(miEmpleado: Empleado, idEmpleado: number) {
         
         this.empleados[idEmpleado] = miEmpleado;
+      }
+
+      eliminarEmpleado( idEmpleado: number) {
+
+        this.empleados.splice(idEmpleado,1)
       }
 
 }
