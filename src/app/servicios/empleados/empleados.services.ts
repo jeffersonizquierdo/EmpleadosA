@@ -58,7 +58,7 @@ export class EmpleadosServices{
 
         this.dataServices.EliminarEmpleado(idEmpleado)
 
-        this.dataServices.guadarEmpleados(this.empleados)
+        if(this.empleados!=null)this.dataServices.guadarEmpleados(this.empleados)
       }
 
 

@@ -15,15 +15,17 @@ import { ModificarDatosEmpleadoComponent } from './modificar-datos-empleado/modi
 import { ErrorComponentComponent } from './error-component/error-component.component';
 import { DataServices } from './servicios/dataServices/Data.services';
 import {HttpClientModule} from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
 
 const appRoutes:Routes = [
 
+  {path:'login', component:LoginComponent},
   {path:'', component:HomeComponentComponent},
   {path:'proyectos', component:ProyectosComponent},
   {path:'quienes', component:QuienesComponentComponent},
   {path:'contacto', component:ContactoComponentComponent},
   {path:'actualizar/:id', component:ModificarDatosEmpleadoComponent },
-  {path:'**', component:ErrorComponentComponent }, 
+  {path:'**', component:ErrorComponentComponent },
 
 ]
 
@@ -36,7 +38,8 @@ const appRoutes:Routes = [
     ProyectosComponent,
     QuienesComponentComponent,
     ContactoComponentComponent,
-    ModificarDatosEmpleadoComponent
+    ModificarDatosEmpleadoComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
