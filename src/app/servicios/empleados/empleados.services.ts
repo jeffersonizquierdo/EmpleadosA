@@ -1,13 +1,23 @@
+import { DataServices } from './../dataServices/Data.services';
 import { ServicioEmpleadosService } from './../mensaje/servicio-empleados.service';
 import { Injectable } from "@angular/core";
 import { Empleado } from "src/app/Empleado.model";
 
+
 @Injectable()
 export class EmpleadosServices{
       
-  constructor( private servicioVentanaEmergente:ServicioEmpleadosService ){
+  constructor( private servicioVentanaEmergente:ServicioEmpleadosService, private dataSerices: DataServices ){
   }
 
+
+  setEmpleaados(arryaEmpleados:Empleado[]){
+    this.empleados = arryaEmpleados;
+
+  }
+
+  empleados:Empleado[] = [];
+  /*
     empleados:Empleado[] = [
 
         new Empleado ("jefferson", "izquierdo", "Presidente", 1000),
@@ -15,13 +25,19 @@ export class EmpleadosServices{
         new Empleado ("Brayan", "Hurtado", "Presidente", 1500),
         new Empleado ("Andres", "Serna", "Desarrollador", 4000)
       
-      ];
+      ];*/
+
+      obtenerEmpleados(){
+
+        return this.dataSerices.cargarEmpleados()
+      }
 
       agregarEmpleadoSercicio(empleado: Empleado){
 
         this.servicioVentanaEmergente.mostrarMensaje("persona a agregar " + "\n" +
         "Nombre: " + empleado.nombre + "\n" + "Apelido: " + empleado.apellido)
         this.empleados.push(empleado);
+        this.dataSerices.guadarEmpleados(this.empleados)
       }
 
       consultarEmpleado(idEmpleado: number): Empleado {
