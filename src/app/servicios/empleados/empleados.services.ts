@@ -7,7 +7,7 @@ import { Empleado } from "src/app/Empleado.model";
 @Injectable()
 export class EmpleadosServices{
       
-  constructor( private servicioVentanaEmergente:ServicioEmpleadosService, private dataSerices: DataServices ){
+  constructor( private servicioVentanaEmergente:ServicioEmpleadosService, private dataServices: DataServices ){
   }
 
 
@@ -29,7 +29,7 @@ export class EmpleadosServices{
 
       obtenerEmpleados(){
 
-        return this.dataSerices.cargarEmpleados()
+        return this.dataServices.cargarEmpleados()
       }
 
       agregarEmpleadoSercicio(empleado: Empleado){
@@ -37,7 +37,7 @@ export class EmpleadosServices{
         this.servicioVentanaEmergente.mostrarMensaje("persona a agregar " + "\n" +
         "Nombre: " + empleado.nombre + "\n" + "Apelido: " + empleado.apellido)
         this.empleados.push(empleado);
-        this.dataSerices.guadarEmpleados(this.empleados)
+        this.dataServices.guadarEmpleados(this.empleados)
       }
 
       consultarEmpleado(idEmpleado: number): Empleado {
@@ -48,14 +48,21 @@ export class EmpleadosServices{
       }
 
       actualizarEmpleado(miEmpleado: Empleado, idEmpleado: number) {
-        
-        this.empleados[idEmpleado] = miEmpleado;
+
+        this.dataServices.actualizarEmpleado(idEmpleado, miEmpleado)
       }
 
       eliminarEmpleado( idEmpleado: number) {
 
         this.empleados.splice(idEmpleado,1)
+
+        this.dataServices.EliminarEmpleado(idEmpleado)
+
+        this.dataServices.guadarEmpleados(this.empleados)
       }
+
+
+
 
 }
 
